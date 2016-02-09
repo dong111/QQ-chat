@@ -17,6 +17,7 @@
 		2B5E41E71C6A545400F97ECB /* _6_02_10_____QQ_____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5E41E61C6A545400F97ECB /* _6_02_10_____QQ_____Tests.m */; };
 		2B5E41F21C6A545400F97ECB /* _6_02_10_____QQ_____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5E41F11C6A545400F97ECB /* _6_02_10_____QQ_____UITests.m */; };
 		2B5E42071C6A599900F97ECB /* messages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B5E42061C6A599900F97ECB /* messages.plist */; };
+		2B5E420A1C6A5A3400F97ECB /* CDMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5E42091C6A5A3400F97ECB /* CDMessage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		2B5E41F11C6A545400F97ECB /* _6_02_10_____QQ_____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_6_02_10_____QQ_____UITests.m"; sourceTree = "<group>"; };
 		2B5E41F31C6A545400F97ECB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B5E42061C6A599900F97ECB /* messages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = messages.plist; sourceTree = "<group>"; };
+		2B5E42081C6A5A3400F97ECB /* CDMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMessage.h; sourceTree = "<group>"; };
+		2B5E42091C6A5A3400F97ECB /* CDMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMessage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +184,8 @@
 		2B5E42031C6A54F300F97ECB /* model */ = {
 			isa = PBXGroup;
 			children = (
+				2B5E42081C6A5A3400F97ECB /* CDMessage.h */,
+				2B5E42091C6A5A3400F97ECB /* CDMessage.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -337,6 +342,7 @@
 				2B5E41D71C6A545400F97ECB /* _6_02_10_____QQ_____.xcdatamodeld in Sources */,
 				2B5E41CE1C6A545400F97ECB /* AppDelegate.m in Sources */,
 				2B5E41CB1C6A545400F97ECB /* main.m in Sources */,
+				2B5E420A1C6A5A3400F97ECB /* CDMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

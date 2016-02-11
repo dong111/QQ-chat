@@ -22,6 +22,11 @@
 
 @implementation ViewController
 
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
 //懒加载
 - (NSArray *)messageFrames
 {

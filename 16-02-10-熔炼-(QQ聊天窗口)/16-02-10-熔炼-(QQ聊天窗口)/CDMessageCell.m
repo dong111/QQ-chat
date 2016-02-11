@@ -22,10 +22,9 @@
     return cell;
 }
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (instancetype)initWithStye:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        //TODO:加载自定义子控件
         //时间显示
         UILabel *timeView = [[UILabel alloc] init];
         [self.contentView addSubview:timeView];
@@ -37,6 +36,11 @@
         _iconView = iconView;
         //聊天内容显示
         UIButton *textView =  [UIButton buttonWithType:UIButtonTypeCustom];
+//        [textView setBackgroundColor:[UIColor grayColor]];
+        [textView setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];//按钮字体颜色
+        textView.titleLabel.font = [UIFont systemFontOfSize:CDTEXTFONT];//按钮字体大小
+        //文字换行
+        textView.titleLabel.numberOfLines = 0;
         [self.contentView addSubview:textView];
         _textView = textView;
         
@@ -47,7 +51,7 @@
 
 
 
-//TODO:重写frame setter  设置子控件frame
+
 - (void)setMessageFrame:(CDMessageFrame *)messageFrame
 {
     _messageFrame = messageFrame;
@@ -81,25 +85,6 @@
     _iconView.frame = self.messageFrame.iconFrame;
     _textView.frame = self.messageFrame.textFrame;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -10,6 +10,8 @@
 #import "CDMessage.h"
 #import "CDMessageFrame.h"
 
+#define CDTEXTFONT 14
+
 @interface CDMessageCell : UITableViewCell
 
 //子控件

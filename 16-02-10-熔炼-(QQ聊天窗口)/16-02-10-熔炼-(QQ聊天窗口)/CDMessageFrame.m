@@ -18,25 +18,42 @@
 
 - (void) framesCaculate
 {
+    CGFloat margin = 10;
     //获取手机屏幕Size
     UIScreen *screen = [UIScreen mainScreen];
     CGSize screSize = screen.bounds.size;
     NSLog(@"%@",NSStringFromCGSize(screSize));
-    CGFloat timeX = 0;
-    CGFloat timeY = 0;
+    CGFloat timeX = margin;
+    CGFloat timeY = margin;
     CGFloat timeW = screSize.width;
     CGFloat timeH = 40;
     _timeFrame = CGRectMake(timeX, timeY, timeW, timeH);
     
-    //TODO 计算frame
-    CGFloat iconX = 10;
-    CGFloat iconY = CGRectGetMaxY(_timeFrame)+10;
+    //图像设置
+    CGFloat iconX = margin;
+    CGFloat iconY = CGRectGetMaxY(_timeFrame)+margin;
     CGFloat iconW = 50;
     CGFloat iconH = 50;
+    if (self.message.type ==CDMessageTypeSelf) {//如果是自己聊天记录
+        iconX = screSize.width - margin-iconW;
+    }
     _iconFrame = CGRectMake(iconX, iconY, iconW, iconH);
-    _rowHeight = 200;
+   
     
+
+    //聊天内容frame设置
+    CGFloat textX = CGRectGetMaxX(_iconFrame)+margin;
+    CGFloat textY = iconY+margin;
+        CGSize textSize = [CDFrameCalculateUtils sizeWithText:self.message.text maxSize:CGSizeMake(250, MAXFLOAT) fontSize:CDTEXTFONT];;
+    if (self.message.type ==CDMessageTypeSelf) {//如果是自己聊天记录
+        textX =iconX-margin-textSize.width;
+    }
+    _textFrame = CGRectMake(textX, textY, textSize.width, textSize.height);
+
     
+    //设置行高
+    _rowHeight = CGRectGetMaxY(_textFrame)>CGRectGetMaxY(_iconFrame)?CGRectGetMaxY(_textFrame):CGRectGetMaxY(_iconFrame);
+     _rowHeight +=margin;
 }
 
 

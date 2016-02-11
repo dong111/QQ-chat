@@ -18,6 +18,8 @@
 		2B5E41F21C6A545400F97ECB /* _6_02_10_____QQ_____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5E41F11C6A545400F97ECB /* _6_02_10_____QQ_____UITests.m */; };
 		2B5E42071C6A599900F97ECB /* messages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B5E42061C6A599900F97ECB /* messages.plist */; };
 		2B5E420A1C6A5A3400F97ECB /* CDMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5E42091C6A5A3400F97ECB /* CDMessage.m */; };
+		2B5E42101C6ACA5100F97ECB /* CDMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5E420F1C6ACA5100F97ECB /* CDMessageCell.m */; };
+		2B5E42141C6ACD6B00F97ECB /* CDMessageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5E42131C6ACD6B00F97ECB /* CDMessageFrame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,10 @@
 		2B5E42061C6A599900F97ECB /* messages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = messages.plist; sourceTree = "<group>"; };
 		2B5E42081C6A5A3400F97ECB /* CDMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMessage.h; sourceTree = "<group>"; };
 		2B5E42091C6A5A3400F97ECB /* CDMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMessage.m; sourceTree = "<group>"; };
+		2B5E420E1C6ACA5100F97ECB /* CDMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMessageCell.h; sourceTree = "<group>"; };
+		2B5E420F1C6ACA5100F97ECB /* CDMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMessageCell.m; sourceTree = "<group>"; };
+		2B5E42121C6ACD6B00F97ECB /* CDMessageFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDMessageFrame.h; sourceTree = "<group>"; };
+		2B5E42131C6ACD6B00F97ECB /* CDMessageFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDMessageFrame.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +192,8 @@
 			children = (
 				2B5E42081C6A5A3400F97ECB /* CDMessage.h */,
 				2B5E42091C6A5A3400F97ECB /* CDMessage.m */,
+				2B5E42121C6ACD6B00F97ECB /* CDMessageFrame.h */,
+				2B5E42131C6ACD6B00F97ECB /* CDMessageFrame.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -194,6 +202,8 @@
 			isa = PBXGroup;
 			children = (
 				2B5E41D21C6A545400F97ECB /* Main.storyboard */,
+				2B5E420E1C6ACA5100F97ECB /* CDMessageCell.h */,
+				2B5E420F1C6ACA5100F97ECB /* CDMessageCell.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -217,6 +227,7 @@
 				2B5E41C21C6A545400F97ECB /* Sources */,
 				2B5E41C31C6A545400F97ECB /* Frameworks */,
 				2B5E41C41C6A545400F97ECB /* Resources */,
+				2B5E42111C6ACC4700F97ECB /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -333,6 +344,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2B5E42111C6ACC4700F97ECB /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "KEYWORDS=\"TODO:|FIXME:|\\?\\?\\?:|\\!\\!\\!:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | perl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2B5E41C21C6A545400F97ECB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -342,6 +370,8 @@
 				2B5E41D71C6A545400F97ECB /* _6_02_10_____QQ_____.xcdatamodeld in Sources */,
 				2B5E41CE1C6A545400F97ECB /* AppDelegate.m in Sources */,
 				2B5E41CB1C6A545400F97ECB /* main.m in Sources */,
+				2B5E42141C6ACD6B00F97ECB /* CDMessageFrame.m in Sources */,
+				2B5E42101C6ACA5100F97ECB /* CDMessageCell.m in Sources */,
 				2B5E420A1C6A5A3400F97ECB /* CDMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

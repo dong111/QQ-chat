@@ -18,13 +18,29 @@
 
 - (void) framesCaculate
 {
+    //获取手机屏幕Size
+    UIScreen *screen = [UIScreen mainScreen];
+    CGSize screSize = screen.bounds.size;
+    NSLog(@"%@",NSStringFromCGSize(screSize));
+    CGFloat timeX = 0;
+    CGFloat timeY = 0;
+    CGFloat timeW = screSize.width;
+    CGFloat timeH = 40;
+    _timeFrame = CGRectMake(timeX, timeY, timeW, timeH);
+    
+    //TODO 计算frame
     CGFloat iconX = 10;
-    CGFloat iconY = 10;
+    CGFloat iconY = CGRectGetMaxY(_timeFrame)+10;
     CGFloat iconW = 50;
     CGFloat iconH = 50;
     _iconFrame = CGRectMake(iconX, iconY, iconW, iconH);
     _rowHeight = 200;
+    
+    
 }
+
+
+
 
 
 @end

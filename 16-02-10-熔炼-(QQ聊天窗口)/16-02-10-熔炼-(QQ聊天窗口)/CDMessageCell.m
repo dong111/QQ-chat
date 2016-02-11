@@ -30,6 +30,7 @@
         UILabel *timeView = [[UILabel alloc] init];
         [self.contentView addSubview:timeView];
         _timeView = timeView;
+        timeView.textAlignment = NSTextAlignmentCenter;
         //图像显示
         UIImageView *iconView = [[UIImageView alloc] init];
         [self.contentView addSubview:iconView];
@@ -65,10 +66,13 @@
 //    }else{
 //        self.iconView.image = [UIImage imageNamed:@"other"];
 //    }
+    //时间
+    self.timeView.text = message.time;
     //图像
     NSString *imageName = message.type == CDMessageTypeSelf?@"me":@"other";
     self.iconView.image = [UIImage imageNamed:imageName];
-    
+    //聊天内容
+    [self.textView setTitle:message.text forState:UIControlStateNormal];
 }
 
 - (void)setContentViewFrams

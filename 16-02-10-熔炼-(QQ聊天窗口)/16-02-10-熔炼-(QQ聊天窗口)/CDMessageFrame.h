@@ -12,6 +12,7 @@
 #import <UIKit/UIKit.h>
 #import "CDFrameCalculateUtils.h"
 #import "CDMessage.h"
+#import "NSString+Extension.h"
 
 
 #define CDTEXTFONT 14

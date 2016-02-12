@@ -46,7 +46,8 @@
     //聊天内容frame设置
     CGFloat textX = CGRectGetMaxX(_iconFrame)+margin;
     CGFloat textY = iconY+margin;
-    CGSize textSize = [CDFrameCalculateUtils sizeWithText:self.message.text maxSize:CGSizeMake(250, MAXFLOAT) fontSize:CDTEXTFONT];;
+    CGSize textSize = [self.message.text sizeWithMaxSize:CGSizeMake(250, MAXFLOAT) andFontSize:CDTEXTFONT];
+//    CGSize textSize = [CDFrameCalculateUtils sizeWithText:self.message.text maxSize:CGSizeMake(250, MAXFLOAT) fontSize:CDTEXTFONT];;
     CGSize buttonSize = CGSizeMake(textSize.width+20*2, textSize.height*2);
     if (self.message.type ==CDMessageTypeSelf) {//如果是自己聊天记录
         textX =iconX-margin-buttonSize.width;

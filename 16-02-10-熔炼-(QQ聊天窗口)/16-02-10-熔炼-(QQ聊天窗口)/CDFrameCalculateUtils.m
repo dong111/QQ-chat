@@ -12,7 +12,7 @@
 
 + (CGSize) sizeWithText:(NSString *)text maxSize:(CGSize)maxSize fontSize:(CGFloat)fontSize
 {
-    CGSize textSize = [text boundingRectWithSize:maxSize options:(NSStringDrawingUsesLineFragmentOrigin) attributes:@{NSFontAttributeName :[UIFont systemFontOfSize:15]} context:nil].size;
+    CGSize textSize = [text boundingRectWithSize:maxSize options:(NSStringDrawingUsesLineFragmentOrigin) attributes:@{NSFontAttributeName :[UIFont systemFontOfSize:fontSize]} context:nil].size;
     
     return textSize;
 }

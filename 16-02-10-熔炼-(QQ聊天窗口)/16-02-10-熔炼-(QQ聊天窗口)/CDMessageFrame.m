@@ -22,7 +22,6 @@
     //获取手机屏幕Size
     UIScreen *screen = [UIScreen mainScreen];
     CGSize screSize = screen.bounds.size;
-    NSLog(@"%@",NSStringFromCGSize(screSize));
     CGFloat timeX = margin;
     CGFloat timeY = margin;
     CGFloat timeW = screSize.width;

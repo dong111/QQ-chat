@@ -60,7 +60,6 @@
 #pragma mark --实现UItable datasource 的方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"%ld",self.messageFrames.count);
     return self.messageFrames.count;
 }
 

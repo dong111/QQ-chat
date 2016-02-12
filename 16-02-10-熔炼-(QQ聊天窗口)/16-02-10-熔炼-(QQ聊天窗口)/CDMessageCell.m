@@ -22,7 +22,7 @@
     return cell;
 }
 
-- (instancetype)initWithStye:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         //时间显示
@@ -34,6 +34,9 @@
         UIImageView *iconView = [[UIImageView alloc] init];
         [self.contentView addSubview:iconView];
         _iconView = iconView;
+        //图像圆角设置
+        iconView.layer.masksToBounds = YES;//这个其实不用手动设置，已经测试通过
+        iconView.layer.cornerRadius = 10;
         //聊天内容显示
         UIButton *textView =  [UIButton buttonWithType:UIButtonTypeCustom];
 //        [textView setBackgroundColor:[UIColor grayColor]];
@@ -41,6 +44,7 @@
         textView.titleLabel.font = [UIFont systemFontOfSize:CDTEXTFONT];//按钮字体大小
         //文字换行
         textView.titleLabel.numberOfLines = 0;
+
         [self.contentView addSubview:textView];
         _textView = textView;
         

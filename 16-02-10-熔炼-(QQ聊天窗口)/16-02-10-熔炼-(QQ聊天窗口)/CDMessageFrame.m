@@ -26,7 +26,10 @@
     CGFloat timeY = margin;
     CGFloat timeW = screSize.width;
     CGFloat timeH = 40;
-    _timeFrame = CGRectMake(timeX, timeY, timeW, timeH);
+    if (!self.message.isHiddenTime) {
+        _timeFrame = CGRectMake(timeX, timeY, timeW, timeH);
+    }
+    
     
     //图像设置
     CGFloat iconX = margin;

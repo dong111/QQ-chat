@@ -29,7 +29,10 @@ typedef enum {
 @property (nonatomic,copy) NSString *text;
 @property (nonatomic,copy) NSString *time;
 @property (nonatomic,assign) CDMessageType type;
-
+/**
+ *  记录消息时间是否隐藏
+ */
+@property (nonatomic,assign,getter=isHiddenTime) BOOL hiddenTime;
 - (instancetype) initWithDic:(NSDictionary *)dic;
 
 + (instancetype) messageWithDic:(NSDictionary *)dic;

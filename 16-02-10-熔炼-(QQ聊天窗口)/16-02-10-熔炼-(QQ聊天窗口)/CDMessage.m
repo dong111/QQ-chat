@@ -29,9 +29,17 @@
     
     NSMutableArray *tmpArray  = [NSMutableArray array];
     
+    CDMessage *preMsg = nil;
     for (NSDictionary *dic in dicArray) {
         CDMessage *message = [[CDMessage alloc] initWithDic:dic];
+        if (preMsg!=nil) {
+            if ([preMsg.time isEqualToString:message.time]) {
+                message.hiddenTime = YES;
+            }
+        }
         [tmpArray addObject:message];
+        
+        preMsg = message;
     }
     
     return tmpArray;

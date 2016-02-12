@@ -83,11 +83,25 @@
     self.iconView.image = [UIImage imageNamed:imageName];
     //聊天内容
     [self.textView setTitle:message.text forState:UIControlStateNormal];
+    //设置聊天内容背景颜色
+    if (message.type == CDMessageTypeSelf) {
+        [self.textView setBackgroundImage:[UIImage imageNamed:@"chat_send_nor"] forState:UIControlStateNormal];
+        [self.textView setBackgroundImage:[UIImage imageNamed:@"chat_send_press_pic"] forState:UIControlStateHighlighted];
+    }else if (message.type == CDMessageTypeOther){
+        [self.textView setBackgroundImage:[UIImage imageNamed:@"chat_recive_nor"] forState:UIControlStateNormal];
+        [self.textView setBackgroundImage:[UIImage imageNamed:@"chat_recive_press_pic"] forState:UIControlStateHighlighted];
+    }
 }
 
 - (void)setContentViewFrams
 {
-    _timeView.frame = self.messageFrame.timeFrame;
+    if (!self.messageFrame.message.isHiddenTime) {
+        _timeView.frame = self.messageFrame.timeFrame;
+    }else{
+        _timeView.frame = CGRectZero;
+    }
+    
+    
     _iconView.frame = self.messageFrame.iconFrame;
     _textView.frame = self.messageFrame.textFrame;
 }

@@ -53,6 +53,12 @@
     //设置tableView数据源和TableView代理
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    //设置不需要分割线
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    //设置不能选中
+    self.tableView.allowsSelection = NO;
+    //设置背景颜色
+    self.tableView.backgroundColor = [UIColor colorWithRed:243/255.0 green:243/255.0 blue:243/255.0 alpha:1];
     
 }
 

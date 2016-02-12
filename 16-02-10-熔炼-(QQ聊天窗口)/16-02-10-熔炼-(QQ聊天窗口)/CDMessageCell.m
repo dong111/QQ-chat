@@ -25,6 +25,8 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        //清空背景色，透明显示
+        self.backgroundColor = [UIColor clearColor];
         //时间显示
         UILabel *timeView = [[UILabel alloc] init];
         [self.contentView addSubview:timeView];

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CDMessage.h"
 #import "CDMessageFrame.h"
+#import "UIImage+Extension.h"
 
 #define CDTEXTFONT 14
 

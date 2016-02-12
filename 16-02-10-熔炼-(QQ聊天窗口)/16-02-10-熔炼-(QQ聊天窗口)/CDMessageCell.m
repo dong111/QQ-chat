@@ -46,7 +46,9 @@
         textView.titleLabel.font = [UIFont systemFontOfSize:CDTEXTFONT];//按钮字体大小
         //文字换行
         textView.titleLabel.numberOfLines = 0;
-
+        //设置按钮中内容的编剧
+        textView.contentEdgeInsets = UIEdgeInsetsMake(20, 20, 20, 20);
+//        textView.backgroundColor = [UIColor redColor];
         [self.contentView addSubview:textView];
         _textView = textView;
         
@@ -85,11 +87,11 @@
     [self.textView setTitle:message.text forState:UIControlStateNormal];
     //设置聊天内容背景颜色
     if (message.type == CDMessageTypeSelf) {
-        [self.textView setBackgroundImage:[UIImage imageNamed:@"chat_send_nor"] forState:UIControlStateNormal];
-        [self.textView setBackgroundImage:[UIImage imageNamed:@"chat_send_press_pic"] forState:UIControlStateHighlighted];
+        [self.textView setBackgroundImage:[UIImage reSizeImageModeTile:@"chat_send_nor"] forState:UIControlStateNormal];
+        [self.textView setBackgroundImage:[UIImage reSizeImageModeTile:@"chat_send_press_pic"] forState:UIControlStateHighlighted];
     }else if (message.type == CDMessageTypeOther){
-        [self.textView setBackgroundImage:[UIImage imageNamed:@"chat_recive_nor"] forState:UIControlStateNormal];
-        [self.textView setBackgroundImage:[UIImage imageNamed:@"chat_recive_press_pic"] forState:UIControlStateHighlighted];
+        [self.textView setBackgroundImage:[UIImage reSizeImageModeTile:@"chat_recive_nor"] forState:UIControlStateNormal];
+        [self.textView setBackgroundImage:[UIImage reSizeImageModeTile:@"chat_recive_press_pic"] forState:UIControlStateHighlighted];
     }
 }
 
@@ -100,8 +102,6 @@
     }else{
         _timeView.frame = CGRectZero;
     }
-    
-    
     _iconView.frame = self.messageFrame.iconFrame;
     _textView.frame = self.messageFrame.textFrame;
 }

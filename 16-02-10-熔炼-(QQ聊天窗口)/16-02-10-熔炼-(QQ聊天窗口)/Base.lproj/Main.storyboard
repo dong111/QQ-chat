@@ -56,6 +56,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="tableView" destination="vPc-d5-TM9" id="ZgW-RC-JQc"/>
+                        <outlet property="textField" destination="4VF-S9-nxE" id="j2v-UE-fhd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

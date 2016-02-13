@@ -11,10 +11,12 @@
 #import "CDMessageFrame.h"
 #import "CDMessageCell.h"
 
-@interface ViewController () <UITableViewDataSource,UITableViewDelegate>
+@interface ViewController () <UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 
-@property (nonatomic,strong) NSArray *messageFrames;
+@property (nonatomic,strong) NSMutableArray *messageFrames;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+
 
 
 @end
@@ -28,7 +30,7 @@
 }
 
 //懒加载
-- (NSArray *)messageFrames
+- (NSMutableArray *)messageFrames
 {
     if (_messageFrames==nil) {
         NSMutableArray *frames = [[NSMutableArray alloc] init];
@@ -53,6 +55,7 @@
     //设置tableView数据源和TableView代理
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.textField.delegate = self;
     //设置不需要分割线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     //设置不能选中
@@ -69,8 +72,8 @@
 #pragma mark --监听并且处理系统通知方法
 - (void) keyboardWillChangeFrame:(NSNotification *)notif
 {
-    NSLog(@"键盘发生了改变");
-    NSLog(@"%@",notif.userInfo);
+//    NSLog(@"键盘发生了改变");
+//    NSLog(@"%@",notif.userInfo);
     //键盘弹出
 //    {
 //        UIKeyboardAnimationCurveUserInfoKey = 7;
@@ -87,9 +90,12 @@
     CGRect keyboardFrame = [notif.userInfo[@"UIKeyboardFrameEndUserInfoKey"] CGRectValue];
     
     CGFloat offsetY = keyboardFrame.origin.y - self.view.frame.size.height;
+//    NSLog(@"height = %f",self.view.frame.size.height);
+//    NSLog(@"origin.y = %f , offsetY = %f",keyboardFrame.origin.y,offsetY);
     [UIView animateWithDuration:duration animations:^{
         self.view.transform = CGAffineTransformMakeTranslation(0, offsetY);
     }];
+    
     
 }
 
@@ -122,13 +128,60 @@
 
 
 #pragma mark --滚动代理方法
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    //滚动table隐藏键盘
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+//    //滚动table隐藏键盘
+//    [self.view endEditing:YES];
+//}
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+        //滚动table隐藏键盘
     [self.view endEditing:YES];
 }
 
+#pragma mark --文本框代理方法
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    //对文字做出判断
+    NSString *msg =  textField.text;
+    [self sendMessage:msg type:CDMessageTypeSelf];
+    if ([msg isEqualToString:@"hello"]) {
+        [self sendMessage:@"hi" type:CDMessageTypeOther];
+        return YES;
+    }
+    [self sendMessage:@"gun" type:CDMessageTypeOther];
+    return YES;
+}
 
+- (void) sendMessage:(NSString *)msg type:(CDMessageType)type
+{
+    CDMessageFrame *frame = [[CDMessageFrame alloc] init];
+    CDMessage *message = [[CDMessage alloc] init];
+    message.text = msg;
+    message.type = type;
+    //获取当前时间
+    NSDate *date = [NSDate date];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    dateFormat.dateFormat = @"HH:mm";
+    NSString *time =  [dateFormat stringFromDate:date];
+    message.time = time;
+    
+    //判断时间是否一致
+    CDMessageFrame *preMsgFrame = self.messageFrames[self.messageFrames.count-1];
+    CDMessage *preMsg = preMsgFrame.message;
+    if ([preMsg.time isEqualToString:message.time]) {
+        message.hiddenTime = YES;
+    }
+    
+    frame.message = message;
+    [self.messageFrames addObject:frame];
+    [self.tableView reloadData];
+    
 
+    //让tableView滚动到最下面
+    NSIndexPath *path = [NSIndexPath indexPathForRow:self.messageFrames.count-1 inSection:0];
+    [self.tableView scrollToRowAtIndexPath:path atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+    
+}
 
 
 

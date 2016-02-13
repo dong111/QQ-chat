@@ -60,6 +60,37 @@
     //设置背景颜色
     self.tableView.backgroundColor = [UIColor colorWithRed:243/255.0 green:243/255.0 blue:243/255.0 alpha:1];
     
+    //订阅键盘变动通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
+}
+
+
+#pragma mark --监听并且处理系统通知方法
+- (void) keyboardWillChangeFrame:(NSNotification *)notif
+{
+    NSLog(@"键盘发生了改变");
+    NSLog(@"%@",notif.userInfo);
+    //键盘弹出
+//    {
+//        UIKeyboardAnimationCurveUserInfoKey = 7;
+//        UIKeyboardAnimationDurationUserInfoKey = "0.25";
+//        UIKeyboardBoundsUserInfoKey = "NSRect: {{0, 0}, {375, 258}}";
+//        UIKeyboardCenterBeginUserInfoKey = "NSPoint: {187.5, 796}";
+//        UIKeyboardCenterEndUserInfoKey = "NSPoint: {187.5, 538}";
+//        UIKeyboardFrameBeginUserInfoKey = "NSRect: {{0, 667}, {375, 258}}";
+//        UIKeyboardFrameEndUserInfoKey = "NSRect: {{0, 409}, {375, 258}}";
+//        UIKeyboardIsLocalUserInfoKey = 1;
+//    }
+    
+    CGFloat duration = [[notif.userInfo valueForKey:@"UIKeyboardAnimationDurationUserInfoKey"] floatValue];
+    CGRect keyboardFrame = [notif.userInfo[@"UIKeyboardFrameEndUserInfoKey"] CGRectValue];
+    
+    CGFloat offsetY = keyboardFrame.origin.y - self.view.frame.size.height;
+    [UIView animateWithDuration:duration animations:^{
+        self.view.transform = CGAffineTransformMakeTranslation(0, offsetY);
+    }];
+    
 }
 
 
@@ -81,14 +112,20 @@
 
 
 
-#pragma mark --事项代理的方法
-//d设置行高
+#pragma mark --tableview代理的方法
+//设置行高
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CDMessageFrame *frame = self.messageFrames[indexPath.row];
     return frame.rowHeight;
 }
 
+
+#pragma mark --滚动代理方法
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    //滚动table隐藏键盘
+    [self.view endEditing:YES];
+}
 
 
 

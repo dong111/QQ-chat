@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B498B081C6C897E00D9A3E4 /* CDFrameCalculateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B498B071C6C897E00D9A3E4 /* CDFrameCalculateUtils.m */; };
+		2B498B0C1C6DBBA400D9A3E4 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B498B0B1C6DBBA400D9A3E4 /* UIImage+Extension.m */; };
+		2B498B0F1C6DBFD700D9A3E4 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B498B0E1C6DBFD700D9A3E4 /* NSString+Extension.m */; };
 		2B5E41CB1C6A545400F97ECB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5E41CA1C6A545400F97ECB /* main.m */; };
 		2B5E41CE1C6A545400F97ECB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5E41CD1C6A545400F97ECB /* AppDelegate.m */; };
 		2B5E41D11C6A545400F97ECB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5E41D01C6A545400F97ECB /* ViewController.m */; };
@@ -40,6 +43,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B498B061C6C897E00D9A3E4 /* CDFrameCalculateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDFrameCalculateUtils.h; sourceTree = "<group>"; };
+		2B498B071C6C897E00D9A3E4 /* CDFrameCalculateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFrameCalculateUtils.m; sourceTree = "<group>"; };
+		2B498B0A1C6DBBA400D9A3E4 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
+		2B498B0B1C6DBBA400D9A3E4 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
+		2B498B0D1C6DBFD700D9A3E4 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		2B498B0E1C6DBFD700D9A3E4 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		2B5E41C61C6A545400F97ECB /* 16-02-10-熔炼-(QQ聊天窗口).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "16-02-10-熔炼-(QQ聊天窗口).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B5E41CA1C6A545400F97ECB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2B5E41CC1C6A545400F97ECB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -91,6 +100,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B498B091C6DBB4300D9A3E4 /* categorys */ = {
+			isa = PBXGroup;
+			children = (
+				2B498B0A1C6DBBA400D9A3E4 /* UIImage+Extension.h */,
+				2B498B0B1C6DBBA400D9A3E4 /* UIImage+Extension.m */,
+				2B498B0D1C6DBFD700D9A3E4 /* NSString+Extension.h */,
+				2B498B0E1C6DBFD700D9A3E4 /* NSString+Extension.m */,
+			);
+			name = categorys;
+			sourceTree = "<group>";
+		};
 		2B5E41BD1C6A545400F97ECB = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +171,7 @@
 		2B5E41FF1C6A54B100F97ECB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2B498B091C6DBB4300D9A3E4 /* categorys */,
 				2B5E42051C6A550400F97ECB /* controller */,
 				2B5E42041C6A54FE00F97ECB /* view */,
 				2B5E42031C6A54F300F97ECB /* model */,
@@ -173,6 +194,8 @@
 		2B5E42011C6A54E200F97ECB /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				2B498B061C6C897E00D9A3E4 /* CDFrameCalculateUtils.h */,
+				2B498B071C6C897E00D9A3E4 /* CDFrameCalculateUtils.m */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -369,8 +392,11 @@
 				2B5E41D11C6A545400F97ECB /* ViewController.m in Sources */,
 				2B5E41D71C6A545400F97ECB /* _6_02_10_____QQ_____.xcdatamodeld in Sources */,
 				2B5E41CE1C6A545400F97ECB /* AppDelegate.m in Sources */,
+				2B498B081C6C897E00D9A3E4 /* CDFrameCalculateUtils.m in Sources */,
 				2B5E41CB1C6A545400F97ECB /* main.m in Sources */,
+				2B498B0F1C6DBFD700D9A3E4 /* NSString+Extension.m in Sources */,
 				2B5E42141C6ACD6B00F97ECB /* CDMessageFrame.m in Sources */,
+				2B498B0C1C6DBBA400D9A3E4 /* UIImage+Extension.m in Sources */,
 				2B5E42101C6ACA5100F97ECB /* CDMessageCell.m in Sources */,
 				2B5E420A1C6A5A3400F97ECB /* CDMessage.m in Sources */,
 			);
@@ -600,6 +626,7 @@
 				2B5E41F81C6A545400F97ECB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2B5E41F91C6A545400F97ECB /* Build configuration list for PBXNativeTarget "16-02-10-熔炼-(QQ聊天窗口)Tests" */ = {
 			isa = XCConfigurationList;
@@ -608,6 +635,7 @@
 				2B5E41FB1C6A545400F97ECB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2B5E41FC1C6A545400F97ECB /* Build configuration list for PBXNativeTarget "16-02-10-熔炼-(QQ聊天窗口)UITests" */ = {
 			isa = XCConfigurationList;
@@ -616,6 +644,7 @@
 				2B5E41FE1C6A545400F97ECB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
